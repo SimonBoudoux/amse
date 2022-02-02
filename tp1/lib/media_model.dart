@@ -6,3 +6,5 @@ class MediaModel {
 
   MediaModel(this.nom, this.url, this.description);
 }
+
+MediaModel
