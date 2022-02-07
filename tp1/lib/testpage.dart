@@ -13,7 +13,7 @@ class Filmclick extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(liste_film.nom),
-        backgroundColor: Colors.red[900],
+        backgroundColor: Colors.blue[900],
       ),
       body : SingleChildScrollView(
         child: Column(
@@ -48,7 +48,7 @@ class Mangaclick extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(liste_manga.nom),
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Colors.red[900],
       ),
       body : SingleChildScrollView(
         child: Column(
@@ -82,12 +82,12 @@ class Contact extends StatelessWidget {
       ),
       body : 
         Text(
-              'mail : simon.boudoux@gmail.com',
+              'mail : simon.boudoux@etu.imt-nord-europe.fr',
               style: TextStyle(
                   fontFamily: 'SourceSansPro',
-                  letterSpacing: 2.5,
+                  letterSpacing: 2,
                   color: Colors.blue,
-                  fontSize: 20,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold),
             ),
         

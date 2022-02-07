@@ -23,6 +23,7 @@ class _About extends State<About>{
               'Simon BOUDOUX',
               style: TextStyle(
                   fontFamily: 'SourceSansPro',
+                  letterSpacing: 2,
                   color: Colors.black,
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
@@ -31,8 +32,8 @@ class _About extends State<About>{
               'Student at IMT Nord Europe',
               style: TextStyle(
                   fontFamily: 'SourceSansPro',
-                  letterSpacing: 2.5,
-                  color: Colors.orange,
+                  letterSpacing: 2,
+                  color: Colors.deepOrange[600],
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
             ),
@@ -40,23 +41,31 @@ class _About extends State<About>{
               'Computer Engineering and Industry and Services',
               style: TextStyle(
                   fontFamily: 'SourceSansPro',
-                  letterSpacing: 2.5,
-                  color: Colors.orange,
+                  letterSpacing: 2,
+                  color: Colors.deepOrange[200],
                   fontSize: 10,
                   fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 20,
+              width: 300,
+              child: Divider(
+                color: Colors.grey,
+              ),
             ),
             Text(
               "Il s'agit d'une application regroupant divers oeuvres de cinémas et mangas pour en faire une séléction de recommandation. Toutefois il s'agit des gouts de l'auteur de cette application.",
               style: TextStyle(
                   fontFamily: 'SourceSansPro',
-                  letterSpacing: 2.5,
-                  color: Colors.orange,
+                  letterSpacing: 2,
+                  color: Colors.black,
                   fontSize: 15,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,
+                  ),
             ),
             SizedBox(
               height: 20,
-              width: 150,
+              width: 200,
               child: Divider(
                 color: Colors.grey,
               ),
