@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Films.dart';
+import 'Manga.dart';
+import 'About.dart';
 
 
 class MyNavigationBar extends StatefulWidget {
@@ -14,15 +16,9 @@ class _MyNavigationBar extends State<MyNavigationBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
+    About(),
     Films(),
-    Text(
-      'Index 1: Manga',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Likes',
-      style: optionStyle,
-    ),
+    Manga(),
   ];
 
   void _onItemTapped(int index) {
@@ -43,16 +39,16 @@ class _MyNavigationBar extends State<MyNavigationBar> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'About'
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.movie),
             label: 'Films'
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.library_books),
-            label: 'Manga'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Likes'
+            label: 'Mangas',
           ),
         ],
         currentIndex: _selectedIndex,
