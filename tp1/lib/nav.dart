@@ -31,7 +31,7 @@ class _MyNavigationBar extends State<MyNavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text('Librairie'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
