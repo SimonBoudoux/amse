@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'Exo2.dart';
+import 'Exo4.dart';
+import 'Exo5a.dart';
+import 'Exo5b.dart';
+import 'Exo5c.dart';
 
 class ListApp extends StatefulWidget {
   const ListApp({Key? key}) : super(key: key);
@@ -24,6 +28,46 @@ class _ListApp extends State<ListApp> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => const Exo2()),
+                            );
+                        },
+                        splashColor: Colors.blue,
+                    ),
+                    InkWell(
+                        child: Container(child: Text('Exo4',textScaleFactor: 4.0,)),
+                        onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const Exo4()),
+                            );
+                        },
+                        splashColor: Colors.blue,
+                    ),
+                    InkWell(
+                        child: Container(child: Text('Exo5a',textScaleFactor: 4.0,)),
+                        onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const Exo5a()),
+                            );
+                        },
+                        splashColor: Colors.blue,
+                    ),
+                    InkWell(
+                        child: Container(child: Text('Exo5b',textScaleFactor: 4.0,)),
+                        onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const Exercice5b()),
+                            );
+                        },
+                        splashColor: Colors.blue,
+                    ),
+                    InkWell(
+                        child: Container(child: Text('Exo5c',textScaleFactor: 4.0,)),
+                        onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const Exo5c()),
                             );
                         },
                         splashColor: Colors.blue,
