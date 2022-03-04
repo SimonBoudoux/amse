@@ -1,103 +1,93 @@
 import 'package:flutter/material.dart';
-
 class Exo5c extends StatefulWidget {
-  const Exo5c({Key? key}) : super(key: key);
+    const Exo5c({Key? key}) : super(key: key);
+  @override
+  _Exo5cState createState() => _Exo5cState();
+}
+
+double nbre = 3;
+
+class _Exo5cState extends State<Exo5c> {
 
   @override
-  State<Exo5c> createState() => _Exo5c();
-}
+  Widget build(BuildContext context) {
 
-class _Exo5c extends State<Exo5c> {
-    double nbre = 2;
-    final List<Tile> tile = [];
-
-    @override
-    Widget build(BuildContext context) {
-        createtile(nbre);
-        return Scaffold(
-            appBar: AppBar(
-                title: const Text("Display a GridView with a picture"),centerTitle: true,
-            ),
-            body: Center(
-                child: Column(children: [
-                    SizedBox(
-                        width: 300.0,
-                        height: 300.0,
-                        child: Container(
-                            margin: EdgeInsets.all(20.0),
-                            child: GridView.builder(
-                                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 3,
-                                ),
-                                itemCount: tile.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                    return createTileWidgetFrom(tile[index]);
-                                }
-                            ),
-                        )
-                    ),
-                    Container(
-                        child: Row(children:[
-                            const Text("Divisions : "),
-                            Expanded(
-                                child: Slider(
-                                value: nbre,
-                                min: 2,
-                                max: 10,
-                                divisions: 8,
-                                activeColor: Colors.blue,
-                                onChanged: (double value) {
-                                    setState(() {
-                                    nbre = value;
-                                    });
-                                },
-                                ),
-                            ),
-                        ],
-                        ),
-                        padding: const EdgeInsets.all(10),
-                    ),
-                ]
-            )
-            ),
-            );
-    }
-    Widget createTileWidgetFrom(Tile tile) {
-        return InkWell(
-        child: tile,
-        );
-    }
-}
-
-void createtile(double a){
-    final List<Tile> tile=[];
-    for (int i = 0; i < a; i++){
-        for(int j = 0; j<a; j++){
-            tile.add(Tile(Alignment(-1+(2*j/a),-1+(2*i/a)),'image/owl.jpg',1/a));
-        }
-    }
-}
-
-
-class Tile extends StatelessWidget {
-    Alignment alignment;
-    String image;
-    double factor;
-
-    Tile(this.alignment, this.image, this.factor);
-
-    @override
-    Widget build(BuildContext context) {
-        return FittedBox(
-            fit: BoxFit.fill,
-            child: ClipRect(
-                child: Align(
-                    alignment: alignment,
-                    widthFactor: factor,
-                    heightFactor: factor,
-                    child: Image.network(image),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Display GridView with a picture"),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(15),
+            child: Container(
+              alignment: Alignment.topCenter,
+              child: SizedBox(
+                height: 600.0,
+                width: 600.0,
+                child: Container(
+                  child: GridView.count(
+                    crossAxisCount: nbre.round(),
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    children: [
+                      for (int i=0; i<nbre; i++)
+                        for (int j=0; j<nbre; j++)
+                          this.createtile(Tile('image/owl.jpg', Alignment(-1.0+j*2/(nbre-1),-1.0+i*2/(nbre-1))))
+                    ],
+                  ),
                 ),
+              ),
             ),
-        );
-    }
+          ),
+          Row(
+            children: [
+              Text('Division : '),
+              Slider(
+                  max: 10,
+                  min: 2,
+                  divisions: 8,
+                  value: nbre,
+                  onChanged: (double value){
+                    setState(() {
+                      nbre = value;
+                    });
+                  }
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  Widget createtile(Tile tile) {
+    return InkWell(
+      child: tile.croppedtile(),
+    );
+  }
 }
+
+class Tile {
+  String image;
+  Alignment alignment;
+
+  Tile(this.image, this.alignment);
+
+  Widget croppedtile() {
+    return FittedBox(
+      fit: BoxFit.fill,
+      child: ClipRect(
+        child: Container(
+          child: Align(
+            alignment: this.alignment,
+            widthFactor: 1/nbre,
+            heightFactor: 1/nbre,
+            child: Image.network(this.image),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+

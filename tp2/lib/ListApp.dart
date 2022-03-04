@@ -4,6 +4,8 @@ import 'Exo4.dart';
 import 'Exo5a.dart';
 import 'Exo5b.dart';
 import 'Exo5c.dart';
+import 'Exo6a.dart';
+
 
 class ListApp extends StatefulWidget {
   const ListApp({Key? key}) : super(key: key);
@@ -68,6 +70,16 @@ class _ListApp extends State<ListApp> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => const Exo5c()),
+                            );
+                        },
+                        splashColor: Colors.blue,
+                    ),
+                    InkWell(
+                        child: Container(child: Text('Exo6a',textScaleFactor: 4.0,)),
+                        onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const Exo6a()),
                             );
                         },
                         splashColor: Colors.blue,
